@@ -33,7 +33,8 @@ export default class HEX2ASCII {
     }
 
     private deserialize(data: string): string[] {
-        let result: string | string[] = data.toUpperCase().replace(/FLAGBIT/, "");
+        let result: string | string[];
+        result = data.toUpperCase().replace(/FLAGBIT/, "");
         result = hexToAscii(result);
         result = result.trim();
         result = result.split(",");
