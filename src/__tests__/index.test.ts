@@ -4,6 +4,7 @@ export interface ITestResult {
     date: string;
     time: string;
     imei: string;
+    governorId: string;
 }
 export interface ITestData {
     input: string;
@@ -25,12 +26,16 @@ const data: ITestData[] = [
                 {
                     name: EFieldName.IMEI,
                 },
+                {
+                    name: EFieldName.GOVERNOR_ID,
+                },
             ]
         },
         result: {
             date: "2022-11-15",
             time: "12:16:55",
-            imei: "868805061259746"
+            imei: "868805061259746",
+            governorId: "A3E-9BHGA3",
         }
     }
 ];
@@ -50,6 +55,10 @@ describe("HEX2ASCII", () => {
 
             test('Transmission IMEI', () => {
                 expect(hexToAscii.imei).toEqual(d.result.imei);
+            });
+
+            test('Transmission Governor Id', () => {
+                expect(hexToAscii.governorId).toEqual(d.result.governorId);
             });
         });
     });

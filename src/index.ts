@@ -4,6 +4,7 @@ export enum EFieldName {
     "DATE" = "DATE",
     "TIME" = "TIME",
     "IMEI" = "IMEI",
+    "GOVERNOR_ID" = "GOVERNOR_ID",
 }
 
 export interface IFieldOptions {
@@ -48,6 +49,11 @@ export default class HEX2ASCII {
 
     public get imei(): string | null {
         const prop: number = this.property(EFieldName.IMEI);
+        return prop !== -1 ? this.d[prop] : null;
+    }
+
+    public get governorId(): string | null {
+        const prop: number = this.property(EFieldName.GOVERNOR_ID);
         return prop !== -1 ? this.d[prop] : null;
     }
 }
