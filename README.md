@@ -7,7 +7,7 @@ Hex to ASCII protocol parser
 ```js
 const data =
   "323032322d31312d31352c31323a31363a35352c3836383830353036313235393734362c4133452d3942484741332c4b4241313736542c302c3439382c312c31312c33362e3835353630362c45282b292c312e3235393237312c53282d292c302c302c3023";
-const hex2ascii = new HEX2ASCII(data, {
+  const options = {
     // Ensure to arrange fields in exact order as they are in the original data format.
     // Hint: Use null to ignore fields.
   fields: [
@@ -43,7 +43,9 @@ const hex2ascii = new HEX2ASCII(data, {
       name: "LATITUDE_DIRECTION",
     },
   ],
-});
+};
+
+const hex2ascii = new HEX2ASCII(data, options);
 
 // Deserialized data
 // 2022-11-15,12:16:55,868805061259746,A3E-9BHGA3,KBA176T,0,498,1,11,36.855606,E(+),1.259271,S(-),0,0,0#
@@ -61,11 +63,20 @@ console.log(hex2ascii.latitudeDirection); // "S(-)"
 
 ## Options
 
-| Option | Description          |
-| ------ | -------------------- |
-| Fields | Data property fields |
+| Option | Type                     | Description                     |
+| ------ | ------------------------ | ------------------------------- |
+| Fields | [field](#fields)\|null[] | Data property [fields](#fields) |
 
 ### Fields
 
-Data property fields.
-List fields in the exact order as they are in the original data (ascii) format.
+| Name                  | Type     | Description                  |
+| --------------------- | -------- | ---------------------------- |
+| `DATE`                | `string` | Transmission date.           |
+| `TIME`                | `string` | Transmission time.           |
+| `IMEI`                | `string` | Device unique identifier.    |
+| `VEHICLE_REG_NUMBER`  | `string` | Vehicle registration number. |
+| `SPEED`               | `string` | Vehicle speed.               |
+| `LONGITUDE`           | `string` | Longitude coordinate.        |
+| `LONGITUDE_DIRECTION` | `string` | Longitude direction.         |
+| `LATITUDE`            | `string` | Latitude coordinate.         |
+| `LATITUDE_DIRECTION`  | `string` | Latitude direction.          |
