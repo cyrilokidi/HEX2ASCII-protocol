@@ -7,6 +7,7 @@ export interface ITestResult {
     governorId: string;
     vehicleRegNumber: string;
     speed: string;
+    odometer: string;
 }
 export interface ITestData {
     hex: string;
@@ -37,6 +38,9 @@ const data: ITestData[] = [
                 {
                     name: EFieldName.SPEED,
                 },
+                {
+                    name: EFieldName.ODOMETER,
+                },
             ]
         },
         result: {
@@ -45,7 +49,8 @@ const data: ITestData[] = [
             imei: "868805061259746",
             governorId: "A3E-9BHGA3",
             vehicleRegNumber: "KBA176T",
-            speed: "0"
+            speed: "0",
+            odometer: "498"
         }
     }
 ];
@@ -78,6 +83,10 @@ describe("HEX2ASCII", () => {
             test('Vehicle speed', () => {
                 expect(hexToAscii.speed).toEqual(d.result.speed);
             });
+
+            test('Odometer', () => {
+                expect(hexToAscii.odometer).toEqual(d.result.odometer);
+            })
         });
     });
 });
