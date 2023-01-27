@@ -9,6 +9,7 @@ export enum EFieldName {
     "SPEED" = "SPEED",
     "ODOMETER" = "ODOMETER",
     "GPS_STATUS" = "GPS_STATUS",
+    "NUMBER_OF_SATELITES" = "NUMBER_OF_SATELITES",
 }
 
 export interface IFieldOptions {
@@ -78,6 +79,11 @@ export default class HEX2ASCII {
 
     public get gpsStatus(): string | null {
         const prop: number = this.property(EFieldName.GPS_STATUS);
+        return prop !== -1 ? this.d[prop] : null;
+    }
+
+    public get numberOfSatelites(): string | null {
+        const prop: number = this.property(EFieldName.NUMBER_OF_SATELITES);
         return prop !== -1 ? this.d[prop] : null;
     }
 }

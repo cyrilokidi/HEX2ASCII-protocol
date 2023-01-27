@@ -9,6 +9,7 @@ export interface ITestResult {
     speed: string;
     odometer: string;
     gpsStatus: string;
+    numberOfSatelites: string;
 }
 export interface ITestData {
     hex: string;
@@ -45,6 +46,9 @@ const data: ITestData[] = [
                 {
                     name: EFieldName.GPS_STATUS,
                 },
+                {
+                    name: EFieldName.NUMBER_OF_SATELITES,
+                }
             ]
         },
         result: {
@@ -56,6 +60,7 @@ const data: ITestData[] = [
             speed: "0",
             odometer: "498",
             gpsStatus: "1",
+            numberOfSatelites: "11"
         }
     }
 ];
@@ -94,8 +99,12 @@ describe("HEX2ASCII", () => {
             });
 
             test('GPS status', () => {
-                expect(hexToAscii.gpsStatus).toBe(d.result.gpsStatus);
-            })
+                expect(hexToAscii.gpsStatus).toEqual(d.result.gpsStatus);
+            });
+
+            test('Number of satelites', () => {
+                expect(hexToAscii.numberOfSatelites).toEqual(d.result.numberOfSatelites);
+            });
         });
     });
 });
