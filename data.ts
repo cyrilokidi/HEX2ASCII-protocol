@@ -53,8 +53,6 @@ export const data: ITestData[] = [
                 {
                     name: EFieldName.LATITUDE_DIRECTION,
                 },
-                null,
-                null,
             ]
         },
         result: {
@@ -104,8 +102,6 @@ export const data: ITestData[] = [
                 {
                     name: EFieldName.LATITUDE_DIRECTION,
                 },
-                null,
-                null,
             ]
         },
         result: {
