@@ -11,6 +11,7 @@ export enum EFieldName {
     "GPS_STATUS" = "GPS_STATUS",
     "NUMBER_OF_SATELITES" = "NUMBER_OF_SATELITES",
     "LONGITUDE" = "LONGITUDE",
+    "LONGITUDE_DIRECTION" = "LONGITUDE_DIRECTION",
 }
 
 export interface IFieldOptions {
@@ -90,6 +91,11 @@ export default class HEX2ASCII {
 
     public get longitude(): string | null {
         const prop: number = this.property(EFieldName.LONGITUDE);
+        return prop !== -1 ? this.d[prop] : null;
+    }
+
+    public get longitudeDirection(): string | null {
+        const prop: number = this.property(EFieldName.LONGITUDE_DIRECTION);
         return prop !== -1 ? this.d[prop] : null;
     }
 }
