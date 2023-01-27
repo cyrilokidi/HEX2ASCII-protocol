@@ -12,6 +12,7 @@ export interface ITestResult {
     numberOfSatelites: string;
     longitude: string;
     longitudeDirection: string;
+    latitude: string;
 }
 export interface ITestData {
     hex: string;
@@ -57,6 +58,9 @@ const data: ITestData[] = [
                 {
                     name: EFieldName.LONGITUDE_DIRECTION,
                 },
+                {
+                    name: EFieldName.LATITUDE,
+                },
             ]
         },
         result: {
@@ -70,7 +74,8 @@ const data: ITestData[] = [
             gpsStatus: "1",
             numberOfSatelites: "11",
             longitude: "36.855606",
-            longitudeDirection: "E(+)"
+            longitudeDirection: "E(+)",
+            latitude: "1.259271",
         }
     }
 ];
@@ -122,6 +127,10 @@ describe("HEX2ASCII", () => {
 
             test('Longitude direction', () => {
                 expect(hexToAscii.longitudeDirection).toEqual(d.result.longitudeDirection);
+            });
+
+            test('Latitude position', () => {
+                expect(hexToAscii.latitude).toEqual(d.result.latitude);
             });
         });
     });
