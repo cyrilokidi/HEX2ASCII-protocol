@@ -4,18 +4,12 @@ export interface ITestResult {
     date: string;
     time: string;
     imei: string;
-    governorId: string;
     vehicleRegNumber: string;
     speed: string;
-    odometer: string;
-    gpsStatus: string;
-    numberOfSatelites: string;
     longitude: string;
     longitudeDirection: string;
     latitude: string;
     latitudeDirection: string;
-    powerSignal: string;
-    speedSignal: string;
 }
 export interface ITestData {
     hex: string;
@@ -37,24 +31,16 @@ export const data: ITestData[] = [
                 {
                     name: EFieldName.IMEI,
                 },
-                {
-                    name: EFieldName.GOVERNOR_ID,
-                },
+                null,
                 {
                     name: EFieldName.VEHICLE_REG_NUMBER,
                 },
                 {
                     name: EFieldName.SPEED,
                 },
-                {
-                    name: EFieldName.ODOMETER,
-                },
-                {
-                    name: EFieldName.GPS_STATUS,
-                },
-                {
-                    name: EFieldName.NUMBER_OF_SATELITES,
-                },
+                null,
+                null,
+                null,
                 {
                     name: EFieldName.LONGITUDE,
                 },
@@ -67,30 +53,20 @@ export const data: ITestData[] = [
                 {
                     name: EFieldName.LATITUDE_DIRECTION,
                 },
-                {
-                    name: EFieldName.POWER_SIGNAL,
-                },
-                {
-                    name: EFieldName.SPEED_SIGNAL,
-                },
+                null,
+                null,
             ]
         },
         result: {
             date: "2022-11-15",
             time: "12:16:55",
             imei: "868805061259746",
-            governorId: "A3E-9BHGA3",
             vehicleRegNumber: "KBA176T",
             speed: "0",
-            odometer: "498",
-            gpsStatus: "1",
-            numberOfSatelites: "11",
             longitude: "36.855606",
             longitudeDirection: "E(+)",
             latitude: "1.259271",
             latitudeDirection: "S(-)",
-            powerSignal: "0",
-            speedSignal: "0",
         }
     }
 ];

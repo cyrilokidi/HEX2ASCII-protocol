@@ -18,28 +18,12 @@ describe("HEX2ASCII", () => {
                 expect(hexToAscii.imei).toEqual(d.result.imei);
             });
 
-            test('Governor Id', () => {
-                expect(hexToAscii.governorId).toEqual(d.result.governorId);
-            });
-
             test('Vehicle Registration Number', () => {
                 expect(hexToAscii.vehicleRegNumber).toEqual(d.result.vehicleRegNumber);
             });
 
             test('Vehicle speed', () => {
                 expect(hexToAscii.speed).toEqual(d.result.speed);
-            });
-
-            test('Odometer', () => {
-                expect(hexToAscii.odometer).toEqual(d.result.odometer);
-            });
-
-            test('GPS status', () => {
-                expect(hexToAscii.gpsStatus).toEqual(d.result.gpsStatus);
-            });
-
-            test('Number of satelites', () => {
-                expect(hexToAscii.numberOfSatelites).toEqual(d.result.numberOfSatelites);
             });
 
             test('Longitude position', () => {
@@ -56,14 +40,6 @@ describe("HEX2ASCII", () => {
 
             test('Latitude direction', () => {
                 expect(hexToAscii.latitudeDirection).toEqual(d.result.latitudeDirection);
-            });
-
-            test('Power signal', () => {
-                expect(hexToAscii.powerSignal).toEqual(d.result.powerSignal);
-            });
-
-            test('Speed signal', () => {
-                expect(hexToAscii.speedSignal).toEqual(d.result.speedSignal);
             });
         });
     });

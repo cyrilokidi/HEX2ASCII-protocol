@@ -4,26 +4,22 @@ export enum EFieldName {
     "DATE" = "DATE",
     "TIME" = "TIME",
     "IMEI" = "IMEI",
-    "GOVERNOR_ID" = "GOVERNOR_ID",
     "VEHICLE_REG_NUMBER" = "VEHICLE_REG_NUMBER",
     "SPEED" = "SPEED",
-    "ODOMETER" = "ODOMETER",
-    "GPS_STATUS" = "GPS_STATUS",
-    "NUMBER_OF_SATELITES" = "NUMBER_OF_SATELITES",
     "LONGITUDE" = "LONGITUDE",
     "LONGITUDE_DIRECTION" = "LONGITUDE_DIRECTION",
     "LATITUDE" = "LATITUDE",
     "LATITUDE_DIRECTION" = "LATITUDE_DIRECTION",
-    "POWER_SIGNAL" = "POWER_SIGNAL",
-    "SPEED_SIGNAL" = "SPEED_SIGNAL",
 }
 
 export interface IFieldOptions {
     name: EFieldName;
 }
 
+export type TFieldOptions = IFieldOptions | null;
+
 export interface IOptions {
-    fields: IFieldOptions[];
+    fields: TFieldOptions[];
 }
 
 export default class HEX2ASCII {
@@ -45,7 +41,7 @@ export default class HEX2ASCII {
     }
 
     private property(name: EFieldName): number {
-        return this.opts.fields.findIndex((field: IFieldOptions) => field.name === name);
+        return this.opts.fields.findIndex((field: TFieldOptions) => field && field.name === name);
     }
 
     public get date(): string | null {
@@ -63,11 +59,6 @@ export default class HEX2ASCII {
         return prop !== -1 ? this.d[prop] : null;
     }
 
-    public get governorId(): string | null {
-        const prop: number = this.property(EFieldName.GOVERNOR_ID);
-        return prop !== -1 ? this.d[prop] : null;
-    }
-
     public get vehicleRegNumber(): string | null {
         const prop: number = this.property(EFieldName.VEHICLE_REG_NUMBER);
         return prop !== -1 ? this.d[prop] : null;
@@ -75,21 +66,6 @@ export default class HEX2ASCII {
 
     public get speed(): string | null {
         const prop: number = this.property(EFieldName.SPEED);
-        return prop !== -1 ? this.d[prop] : null;
-    }
-
-    public get odometer(): string | null {
-        const prop: number = this.property(EFieldName.ODOMETER);
-        return prop !== -1 ? this.d[prop] : null;
-    }
-
-    public get gpsStatus(): string | null {
-        const prop: number = this.property(EFieldName.GPS_STATUS);
-        return prop !== -1 ? this.d[prop] : null;
-    }
-
-    public get numberOfSatelites(): string | null {
-        const prop: number = this.property(EFieldName.NUMBER_OF_SATELITES);
         return prop !== -1 ? this.d[prop] : null;
     }
 
@@ -110,16 +86,6 @@ export default class HEX2ASCII {
 
     public get latitudeDirection(): string | null {
         const prop: number = this.property(EFieldName.LATITUDE_DIRECTION);
-        return prop !== -1 ? this.d[prop] : null;
-    }
-
-    public get powerSignal(): string | null {
-        const prop: number = this.property(EFieldName.POWER_SIGNAL);
-        return prop !== -1 ? this.d[prop] : null;
-    }
-
-    public get speedSignal(): string | null {
-        const prop: number = this.property(EFieldName.SPEED_SIGNAL);
         return prop !== -1 ? this.d[prop] : null;
     }
 }
