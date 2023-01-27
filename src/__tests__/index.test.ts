@@ -10,6 +10,7 @@ export interface ITestResult {
     odometer: string;
     gpsStatus: string;
     numberOfSatelites: string;
+    longitude: string;
 }
 export interface ITestData {
     hex: string;
@@ -48,7 +49,10 @@ const data: ITestData[] = [
                 },
                 {
                     name: EFieldName.NUMBER_OF_SATELITES,
-                }
+                },
+                {
+                    name: EFieldName.LONGITUDE,
+                },
             ]
         },
         result: {
@@ -60,7 +64,8 @@ const data: ITestData[] = [
             speed: "0",
             odometer: "498",
             gpsStatus: "1",
-            numberOfSatelites: "11"
+            numberOfSatelites: "11",
+            longitude: "36.855606"
         }
     }
 ];
@@ -104,6 +109,10 @@ describe("HEX2ASCII", () => {
 
             test('Number of satelites', () => {
                 expect(hexToAscii.numberOfSatelites).toEqual(d.result.numberOfSatelites);
+            });
+
+            test('Longitude position', () => {
+                expect(hexToAscii.longitude).toEqual(d.result.longitude)
             });
         });
     });
