@@ -15,6 +15,7 @@ export interface ITestResult {
     latitude: string;
     latitudeDirection: string;
     powerSignal: string;
+    speedSignal: string;
 }
 export interface ITestData {
     hex: string;
@@ -69,6 +70,9 @@ const data: ITestData[] = [
                 {
                     name: EFieldName.POWER_SIGNAL,
                 },
+                {
+                    name: EFieldName.SPEED_SIGNAL,
+                },
             ]
         },
         result: {
@@ -86,6 +90,7 @@ const data: ITestData[] = [
             latitude: "1.259271",
             latitudeDirection: "S(-)",
             powerSignal: "0",
+            speedSignal: "0",
         }
     }
 ];
@@ -149,6 +154,10 @@ describe("HEX2ASCII", () => {
 
             test('Power signal', () => {
                 expect(hexToAscii.powerSignal).toEqual(d.result.powerSignal);
+            });
+
+            test('Speed signal', () => {
+                expect(hexToAscii.speedSignal).toEqual(d.result.speedSignal);
             });
         });
     });

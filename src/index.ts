@@ -15,6 +15,7 @@ export enum EFieldName {
     "LATITUDE" = "LATITUDE",
     "LATITUDE_DIRECTION" = "LATITUDE_DIRECTION",
     "POWER_SIGNAL" = "POWER_SIGNAL",
+    "SPEED_SIGNAL" = "SPEED_SIGNAL",
 }
 
 export interface IFieldOptions {
@@ -114,6 +115,11 @@ export default class HEX2ASCII {
 
     public get powerSignal(): string | null {
         const prop: number = this.property(EFieldName.POWER_SIGNAL);
+        return prop !== -1 ? this.d[prop] : null;
+    }
+
+    public get speedSignal(): string | null {
+        const prop: number = this.property(EFieldName.SPEED_SIGNAL);
         return prop !== -1 ? this.d[prop] : null;
     }
 }
