@@ -6,6 +6,7 @@ export enum EFieldName {
     "IMEI" = "IMEI",
     "GOVERNOR_ID" = "GOVERNOR_ID",
     "VEHICLE_REG_NUMBER" = "VEHICLE_REG_NUMBER",
+    "SPEED" = "SPEED",
 }
 
 export interface IFieldOptions {
@@ -60,6 +61,11 @@ export default class HEX2ASCII {
 
     public get vehicleRegNumber(): string | null {
         const prop: number = this.property(EFieldName.VEHICLE_REG_NUMBER);
+        return prop !== -1 ? this.d[prop] : null;
+    }
+
+    public get speed(): string | null {
+        const prop: number = this.property(EFieldName.SPEED);
         return prop !== -1 ? this.d[prop] : null;
     }
 }

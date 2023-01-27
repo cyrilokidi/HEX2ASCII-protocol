@@ -6,6 +6,7 @@ export interface ITestResult {
     imei: string;
     governorId: string;
     vehicleRegNumber: string;
+    speed: string;
 }
 export interface ITestData {
     hex: string;
@@ -32,7 +33,10 @@ const data: ITestData[] = [
                 },
                 {
                     name: EFieldName.VEHICLE_REG_NUMBER,
-                }
+                },
+                {
+                    name: EFieldName.SPEED,
+                },
             ]
         },
         result: {
@@ -40,7 +44,8 @@ const data: ITestData[] = [
             time: "12:16:55",
             imei: "868805061259746",
             governorId: "A3E-9BHGA3",
-            vehicleRegNumber: "KBA176T"
+            vehicleRegNumber: "KBA176T",
+            speed: "0"
         }
     }
 ];
@@ -68,6 +73,10 @@ describe("HEX2ASCII", () => {
 
             test('Vehicle Registration Number', () => {
                 expect(hexToAscii.vehicleRegNumber).toEqual(d.result.vehicleRegNumber);
+            });
+
+            test('Vehicle speed', () => {
+                expect(hexToAscii.speed).toEqual(d.result.speed);
             });
         });
     });
