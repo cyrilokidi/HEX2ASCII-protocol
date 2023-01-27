@@ -2,6 +2,7 @@ import HEX2ASCII, { EFieldName, IOptions } from "../index";
 
 export interface ITestResult {
     date: string;
+    time: string;
 }
 export interface ITestData {
     input: string;
@@ -16,11 +17,15 @@ const data: ITestData[] = [
             fields: [
                 {
                     name: EFieldName.DATE,
-                }
+                },
+                {
+                    name: EFieldName.TIME,
+                },
             ]
         },
         result: {
-            date: "2022-11-15"
+            date: "2022-11-15",
+            time: "12:16:55",
         }
     }
 ];
@@ -32,7 +37,11 @@ describe("HEX2ASCII", () => {
 
             test('Transmission Date', () => {
                 expect(hexToAscii.date).toEqual(d.result.date);
-            })
+            });
+
+            test('Transmission Time', () => {
+                expect(hexToAscii.time).toEqual(d.result.time);
+            });
         });
     });
 });
