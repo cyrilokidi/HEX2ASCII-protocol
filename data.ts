@@ -119,5 +119,51 @@ export const data: ITestData[] = [
             latitude: "1.267431",
             latitudeDirection: "S(-)",
         }
+    },
+    {
+        hex: "31312f32392f32322c30393a35383a33312c3836393633303035343030393435352c2c4b4443303333452c302c33362e3836323333382c452c312e3333323130392c532c302c300d0a",
+        options: {
+            fields: [
+                {
+                    name: EFieldName.DATE,
+                },
+                {
+                    name: EFieldName.TIME,
+                },
+                {
+                    name: EFieldName.IMEI,
+                },
+                null,
+                {
+                    name: EFieldName.VEHICLE_REG_NUMBER,
+                },
+                {
+                    name: EFieldName.SPEED,
+                },
+                {
+                    name: EFieldName.LONGITUDE,
+                },
+                {
+                    name: EFieldName.LONGITUDE_DIRECTION,
+                },
+                {
+                    name: EFieldName.LATITUDE,
+                },
+                {
+                    name: EFieldName.LATITUDE_DIRECTION,
+                },
+            ]
+        },
+        result: {
+            date: "11/29/22",
+            time: "09:58:31",
+            imei: "869630054009455",
+            vehicleRegNumber: "KDC033E",
+            speed: "0",
+            longitude: "36.862338",
+            longitudeDirection: "E",
+            latitude: "1.332109",
+            latitudeDirection: "S",
+        }
     }
 ];
