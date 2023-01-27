@@ -3,6 +3,7 @@ import { hexToAscii } from "./lib";
 export enum EFieldName {
     "DATE" = "DATE",
     "TIME" = "TIME",
+    "IMEI" = "IMEI",
 }
 
 export interface IFieldOptions {
@@ -42,6 +43,11 @@ export default class HEX2ASCII {
 
     public get time(): string | null {
         const prop: number = this.property(EFieldName.TIME);
+        return prop !== -1 ? this.d[prop] : null;
+    }
+
+    public get imei(): string | null {
+        const prop: number = this.property(EFieldName.IMEI);
         return prop !== -1 ? this.d[prop] : null;
     }
 }

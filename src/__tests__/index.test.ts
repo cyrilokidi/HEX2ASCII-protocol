@@ -3,6 +3,7 @@ import HEX2ASCII, { EFieldName, IOptions } from "../index";
 export interface ITestResult {
     date: string;
     time: string;
+    imei: string;
 }
 export interface ITestData {
     input: string;
@@ -21,11 +22,15 @@ const data: ITestData[] = [
                 {
                     name: EFieldName.TIME,
                 },
+                {
+                    name: EFieldName.IMEI,
+                },
             ]
         },
         result: {
             date: "2022-11-15",
             time: "12:16:55",
+            imei: "868805061259746"
         }
     }
 ];
@@ -41,6 +46,10 @@ describe("HEX2ASCII", () => {
 
             test('Transmission Time', () => {
                 expect(hexToAscii.time).toEqual(d.result.time);
+            });
+
+            test('Transmission IMEI', () => {
+                expect(hexToAscii.imei).toEqual(d.result.imei);
             });
         });
     });
