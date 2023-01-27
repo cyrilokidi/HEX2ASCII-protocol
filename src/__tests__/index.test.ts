@@ -13,6 +13,7 @@ export interface ITestResult {
     longitude: string;
     longitudeDirection: string;
     latitude: string;
+    latitudeDirection: string;
 }
 export interface ITestData {
     hex: string;
@@ -61,6 +62,9 @@ const data: ITestData[] = [
                 {
                     name: EFieldName.LATITUDE,
                 },
+                {
+                    name: EFieldName.LATITUDE_DIRECTION,
+                },
             ]
         },
         result: {
@@ -76,6 +80,7 @@ const data: ITestData[] = [
             longitude: "36.855606",
             longitudeDirection: "E(+)",
             latitude: "1.259271",
+            latitudeDirection: "S(-)",
         }
     }
 ];
@@ -131,6 +136,10 @@ describe("HEX2ASCII", () => {
 
             test('Latitude position', () => {
                 expect(hexToAscii.latitude).toEqual(d.result.latitude);
+            });
+
+            test('Latitude direction', () => {
+                expect(hexToAscii.latitudeDirection).toEqual(d.result.latitudeDirection);
             });
         });
     });

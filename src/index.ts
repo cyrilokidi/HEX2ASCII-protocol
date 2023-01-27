@@ -13,6 +13,7 @@ export enum EFieldName {
     "LONGITUDE" = "LONGITUDE",
     "LONGITUDE_DIRECTION" = "LONGITUDE_DIRECTION",
     "LATITUDE" = "LATITUDE",
+    "LATITUDE_DIRECTION" = "LATITUDE_DIRECTION",
 }
 
 export interface IFieldOptions {
@@ -102,6 +103,11 @@ export default class HEX2ASCII {
 
     public get latitude(): string | null {
         const prop: number = this.property(EFieldName.LATITUDE);
+        return prop !== -1 ? this.d[prop] : null;
+    }
+
+    public get latitudeDirection(): string | null {
+        const prop: number = this.property(EFieldName.LATITUDE_DIRECTION);
         return prop !== -1 ? this.d[prop] : null;
     }
 }
