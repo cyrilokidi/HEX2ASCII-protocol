@@ -8,6 +8,7 @@ export interface ITestResult {
     vehicleRegNumber: string;
     speed: string;
     odometer: string;
+    gpsStatus: string;
 }
 export interface ITestData {
     hex: string;
@@ -41,6 +42,9 @@ const data: ITestData[] = [
                 {
                     name: EFieldName.ODOMETER,
                 },
+                {
+                    name: EFieldName.GPS_STATUS,
+                },
             ]
         },
         result: {
@@ -50,7 +54,8 @@ const data: ITestData[] = [
             governorId: "A3E-9BHGA3",
             vehicleRegNumber: "KBA176T",
             speed: "0",
-            odometer: "498"
+            odometer: "498",
+            gpsStatus: "1",
         }
     }
 ];
@@ -86,6 +91,10 @@ describe("HEX2ASCII", () => {
 
             test('Odometer', () => {
                 expect(hexToAscii.odometer).toEqual(d.result.odometer);
+            });
+
+            test('GPS status', () => {
+                expect(hexToAscii.gpsStatus).toBe(d.result.gpsStatus);
             })
         });
     });

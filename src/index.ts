@@ -8,6 +8,7 @@ export enum EFieldName {
     "VEHICLE_REG_NUMBER" = "VEHICLE_REG_NUMBER",
     "SPEED" = "SPEED",
     "ODOMETER" = "ODOMETER",
+    "GPS_STATUS" = "GPS_STATUS",
 }
 
 export interface IFieldOptions {
@@ -72,6 +73,11 @@ export default class HEX2ASCII {
 
     public get odometer(): string | null {
         const prop: number = this.property(EFieldName.ODOMETER);
+        return prop !== -1 ? this.d[prop] : null;
+    }
+
+    public get gpsStatus(): string | null {
+        const prop: number = this.property(EFieldName.GPS_STATUS);
         return prop !== -1 ? this.d[prop] : null;
     }
 }
