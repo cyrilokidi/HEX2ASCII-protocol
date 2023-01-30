@@ -1,4 +1,4 @@
-import { EFieldName, IOptions } from "./src";
+import { EFieldName, IOptions } from "./index";
 
 export interface ITestResult {
     date: string;

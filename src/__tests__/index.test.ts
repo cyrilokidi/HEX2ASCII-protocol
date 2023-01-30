@@ -1,5 +1,5 @@
 import HEX2ASCII from "../index";
-import { data, ITestData } from "../../data";
+import { data, ITestData } from "../data";
 
 describe("HEX2ASCII", () => {
     data.map((d: ITestData, i: number) => {
